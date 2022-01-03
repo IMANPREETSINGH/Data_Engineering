@@ -28,7 +28,7 @@ configFile = 'config.ini'
 
 ####################### AWS S3 Connection and Load  ###################### 
 
-df_csv = get_s3_csv_file(fileName, bucketName, configFile, 'aws_s3')
+df_csv = get_s3_csv_file(fileName = fileName, bucketName = bucketName, configFile= configFile, configSection= 'aws_s3')
 
 ####################### AWS S3 Connection and Load  ###################### 
 

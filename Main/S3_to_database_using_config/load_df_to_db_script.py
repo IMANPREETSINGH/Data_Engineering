@@ -11,7 +11,6 @@ Version     Date        Author              Description
 
 #postgres related modules
 import psycopg2 as ps
-import psycopg2.extras as pse
 
 #postgres related modules
 import pandas as pd 

@@ -1,7 +1,8 @@
 '''
 File        :   config_script
-Description :   to get configuration values from config file and section defined. 
+description :   to get configuration values from config file and section defined. 
                 return parameters as dictionary
+
 Creator     :   Imanpreet Singh 
 
 
