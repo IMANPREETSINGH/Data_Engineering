@@ -1,3 +1,16 @@
+'''
+File        :   get_s3_csv_file_script
+Description :   to fetch csv file from aws s3 bucket
+                return csv data as data frame 
+Creator     :   Imanpreet Singh 
+
+
+Version     Date        Author              Description
+1           01-01-2022  Imanpreet Singh
+
+'''
+
+
 import pandas as pd 
 
 #sdk to interact with AWS services. In our case it is S3 bucket

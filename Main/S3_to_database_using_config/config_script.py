@@ -1,3 +1,15 @@
+'''
+File        :   config_script
+Description :   to get configuration values from config file and section defined. 
+                return parameters as dictionary
+Creator     :   Imanpreet Singh 
+
+
+Version     Date        Author              Description
+1           01-01-2022  Imanpreet Singh
+
+'''
+
 #module to get configuration from config/ini files 
 from configparser import ConfigParser
 

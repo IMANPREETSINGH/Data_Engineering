@@ -1,3 +1,14 @@
+'''
+File        :   list_to_insert_query_script
+Description :   return insert query based on the tableName, columnName and columnList
+Creator     :   Imanpreet Singh 
+
+
+Version     Date        Author              Description
+1           01-01-2022  Imanpreet Singh
+
+'''
+
 # to create Insert query based on input parameters
 def list_to_insert_query (columnList, schemaName, tableName): 
     
