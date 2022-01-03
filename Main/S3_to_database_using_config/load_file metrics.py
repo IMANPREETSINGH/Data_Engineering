@@ -1,3 +1,15 @@
+'''
+File        :   load_file metrics (FORMAT - load_file filename)
+Description :   load metrics file to database 
+Creator     :   Imanpreet Singh 
+
+
+Version     Date        Author              Description
+1           01-01-2022  Imanpreet Singh
+
+'''
+
+
 import pandas as pd 
 
 #udfs 

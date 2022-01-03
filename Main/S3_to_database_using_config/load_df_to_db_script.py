@@ -1,3 +1,14 @@
+'''
+File        :   load_df_to_db_script
+Description :   load any data frame to database tables
+Creator     :   Imanpreet Singh 
+
+
+Version     Date        Author              Description
+1           01-01-2022  Imanpreet Singh
+
+'''
+
 #postgres related modules
 import psycopg2 as ps
 import psycopg2.extras as pse
@@ -9,10 +20,7 @@ import pandas as pd
 from config_script import config
 from list_to_insert_query_script import list_to_insert_query
 
-configFile = 'config.ini'
-configSection = 'aws_s3'
-bucketName = 's3-bucket-file-load-to-pgdb'
-fileName = 'metrics.csv'
+
 
 def load_df_to_db (schemaName, tableName, configFile, configSection, dataFrame):
 
