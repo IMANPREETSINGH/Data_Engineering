@@ -59,3 +59,65 @@
 26012022_225122: select isin,price,date from int.openstockprice where date = '2022-01-31'
 26012022_225122: ETL process started
 26012022_225122: Open price data for 2022-01-31 is not present in database, can't process data, exiting
+26012022_232140: GetData process started
+26012022_232140: select max(date) as maxdate from int.stockprice
+26012022_232140: ETL process started
+26012022_232231: GetData process started
+26012022_232231: select max(date) as maxdate from int.stockprice
+26012022_232231: GetData process started
+26012022_232231: select isin,price,date from int.openstockprice where date = '2022-01-26'
+26012022_232231: GetInsertQuery process started
+26012022_232231: ETL process started
+26012022_232231: No data in table int.stockprice, initiating insert with current date
+26012022_232353: GetData process started
+26012022_232353: select max(date) as maxdate from int.stockprice
+26012022_232353: GetData process started
+26012022_232353: select isin,price,date from int.openstockprice where date = '2022-01-31'
+26012022_232353: ETL process started
+26012022_232353: No data in table int.stockprice, initiating insert with current date
+26012022_232353: Open price data for 2022-01-31 is not present in database, can't process data, exiting
+26012022_232611: GetData process started
+26012022_232611: select max(date) as maxdate from int.stockprice
+26012022_232611: ETL process started
+26012022_232625: GetData process started
+26012022_232625: select max(date) as maxdate from int.stockprice
+26012022_232625: ETL process started
+26012022_232739: GetData process started
+26012022_232739: select max(date) as maxdate from int.stockprice
+26012022_232739: GetData process started
+26012022_232739: select isin,price,date from int.openstockprice where date = '2022-01-28'
+26012022_232739: ETL process started
+26012022_232739: Close price data for 2022-01-28 is not present in file, can't process data, exiting
+26012022_232813: GetData process started
+26012022_232813: select max(date) as maxdate from int.stockprice
+26012022_232813: GetData process started
+26012022_232813: select isin,price,date from int.openstockprice where date = '2022-01-31'
+26012022_232813: ETL process started
+26012022_232813: Open price data for 2022-01-31 is not present in database, can't process data, exiting
+26012022_232920: GetData process started
+26012022_232920: select max(date) as maxdate from int.stockprice
+26012022_232920: GetData process started
+26012022_232920: select isin,price,date from int.openstockprice where date = '2022-01-31'
+26012022_232920: ETL process started
+26012022_232920: Open price data for 2022-01-31 is not present in database, can't process data, exiting
+26012022_233227: GetData process started
+26012022_233227: select max(date) as maxdate from int.stockprice
+26012022_233227: GetData process started
+26012022_233227: select isin,price,date from int.openstockprice where date = '2022-01-31'
+26012022_233227: GetInsertQuery process started
+26012022_233227: ETL process started
+26012022_233255: GetData process started
+26012022_233255: select max(date) as maxdate from int.stockprice
+26012022_233255: GetData process started
+26012022_233255: select isin,price,date from int.openstockprice where date = '2022-01-31'
+26012022_233255: GetInsertQuery process started
+26012022_233255: PutData process started
+26012022_233255: Insert into int.stockprice (isin,name,price_open,price_close,date,day,month,year ) values (%s,%s,%s,%s,%s,%s,%s,%s)
+26012022_233255: Data Load complete
+26012022_233255: ETL process started
+26012022_233330: GetData process started
+26012022_233330: select max(date) as maxdate from int.stockprice
+26012022_233331: GetData process started
+26012022_233331: select isin,price,date from int.openstockprice where date = '2022-02-01'
+26012022_233330: ETL process started
+26012022_233331: Open price data for 2022-02-01 is not present in database, can't process data, exiting

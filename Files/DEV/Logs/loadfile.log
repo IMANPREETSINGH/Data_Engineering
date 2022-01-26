@@ -79,3 +79,15 @@
 26012022_225543: PutFile process started
 26012022_225543: closestockprice.csv file already exist at C:\Git\Data_Engineering\Files\DEV\Files, archiving the file
 26012022_225543: C:\Git\Data_Engineering\Files\DEV\Landing\closestockprice.csv moved from landing area
+26012022_231558: PutFile process started
+26012022_231637: PutFile process started
+26012022_231731: PutFile process started
+26012022_231744: PutFile process started
+26012022_231846: PutFile process started
+26012022_231846: copying Process started
+26012022_232107: PutFile process started
+26012022_232107: copying Process started
+26012022_232107: closestockprice.csv file not exist at C:\Git\Data_Engineering\Files\DEV\Files, copying the file
+26012022_233220: PutFile process started
+26012022_233220: copying Process started
+26012022_233220: closestockprice.csv file not exist at C:\Git\Data_Engineering\Files\DEV\Files, copying the file

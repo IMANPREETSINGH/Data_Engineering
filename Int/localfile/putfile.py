@@ -72,8 +72,8 @@ def PutFile(filesourcepath, filetargetpath, filearchivepath, filename, logfile):
     sourcefilefullname = os.path.join(filesourcepath,filename)
     targetfilefullname = os.path.join(filetargetpath,filename)
 
-    #print (sourcefilefullname)
-    #print (targetfilefullname)
+    print (sourcefilefullname)
+    print (targetfilefullname)
 
     #-----------------------------------------------------------
     #checking file
@@ -120,6 +120,10 @@ def PutFile(filesourcepath, filetargetpath, filearchivepath, filename, logfile):
                 print (msg)
 
     else:     
+        msg = "copying Process started"
+        logfileobj.write("\n{}: {}".format(currenttime,msg))
+        currenttime  = datetime.now().strftime('%d%m%Y_%H%M%S')
+        print (msg)
 
         if not os.path.isfile(sourcefilefullname): 
             msg = "{} doesn't exist in landing area".format(sourcefilefullname)
@@ -136,7 +140,7 @@ def PutFile(filesourcepath, filetargetpath, filearchivepath, filename, logfile):
 
             PutFile(filetargetpath,filearchivepath,'',filename,logfile)
             time.sleep(3)
-            
+
             shutil.move(sourcefilefullname, targetfilefullname)
 
             if not os.path.isfile(sourcefilefullname): 
@@ -145,3 +149,10 @@ def PutFile(filesourcepath, filetargetpath, filearchivepath, filename, logfile):
                 currenttime  = datetime.now().strftime('%d%m%Y_%H%M%S')
                 print (msg)
                 return(0)
+        else:
+            msg = "{} file not exist at {}, copying the file".format(filename,filetargetpath)
+            logfileobj.write("\n{}: {}".format(currenttime,msg))
+            currenttime  = datetime.now().strftime('%d%m%Y_%H%M%S')
+            print (msg)
+            
+            shutil.move(sourcefilefullname, targetfilefullname)
