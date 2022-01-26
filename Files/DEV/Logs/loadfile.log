@@ -1,0 +1,81 @@
+
+26012022_205648: CreateBucketS3 process started
+26012022_205650: stockpricedev bucket exist, loading file
+26012022_205652: GetFileDatas3 process started
+26012022_205653: stockpricedev bucket exist, checking file
+26012022_205653: closestockprice.csv key/file exist, getting data
+26012022_205654: CreateBucketS3 process started
+26012022_205655: stockpricedevarchive bucket exist, loading file
+26012022_205655: CopyFileS3 process started
+26012022_205657: stockpricedev bucket exist
+26012022_205658: stockpricedevarchive bucket exist
+26012022_205659: stockpricedev file exists in bucket closestockprice.csv
+26012022_205659: stockpricedevarchive file doesn't exist in bucket closestockprice_28012022.csv, copying file
+26012022_205702: File closestockprice.csv copied from bucket - stockpricedev to bucket - stockpricedevarchive as closestockprice_28012022.csv
+26012022_205702: DeleteFileS3 process started
+26012022_205704: stockpricedev bucket exist, checking file existence
+26012022_205704: stockpricedev file exists in bucket closestockprice.csv, initiating deletion
+26012022_205704: stockpricedev file delete from bucket closestockprice.csv
+26012022_205652: ArchiveFileS3 process started
+26012022_205648: PutFileS3 process started
+26012022_205652: closestockprice.csv file exists in bucket stockpricedev, archiving the file
+26012022_205705: closestockprice.csv file loaded in bucket stockpricedev
+26012022_213248: CreateBucketS3 process started
+26012022_213250: stockpricedev bucket exist, loading file
+26012022_213251: GetFileDatas3 process started
+26012022_213253: stockpricedev bucket exist, checking file
+26012022_213253: closestockprice.csv key/file exist, getting data
+26012022_213253: CreateBucketS3 process started
+26012022_213255: stockpricedevarchive bucket exist, loading file
+26012022_213255: CopyFileS3 process started
+26012022_213257: stockpricedev bucket exist
+26012022_213258: stockpricedevarchive bucket exist
+26012022_213258: stockpricedev file exists in bucket closestockprice.csv
+26012022_213259: stockpricedevarchive file doesn't exist in bucket closestockprice_29012022.csv, copying file
+26012022_213302: File closestockprice.csv copied from bucket - stockpricedev to bucket - stockpricedevarchive as closestockprice_29012022.csv
+26012022_213302: DeleteFileS3 process started
+26012022_213303: stockpricedev bucket exist, checking file existence
+26012022_213304: stockpricedev file exists in bucket closestockprice.csv, initiating deletion
+26012022_213304: stockpricedev file delete from bucket closestockprice.csv
+26012022_213251: ArchiveFileS3 process started
+26012022_213248: PutFileS3 process started
+26012022_213251: closestockprice.csv file exists in bucket stockpricedev, archiving the file
+26012022_213305: closestockprice.csv file loaded in bucket stockpricedev
+26012022_213613: PutFile process started
+26012022_213613: closestockprice.csv doesn't exist
+26012022_213820: PutFile process started
+26012022_213820: closestockprice.csv doesn't exist
+26012022_213843: PutFile process started
+26012022_213956: PutFile process started
+26012022_214008: PutFile process started
+26012022_214008: C:\Git\Data_Engineering\Files\DEV\Landing\closestockprice.csv doesn't exist in landing area
+26012022_214130: PutFile process started
+26012022_214141: PutFile process started
+26012022_214141: closestockprice.csv file already exist at C:\Git\Data_Engineering\Files\DEV\Files
+26012022_214157: PutFile process started
+26012022_214157: closestockprice.csv file already exist at C:\Git\Data_Engineering\Files\DEV\Files, archiving the file
+26012022_220625: PutFile process started
+26012022_220625: closestockprice.csv file already exist at C:\Git\Data_Engineering\Files\DEV\Files, archiving the file
+26012022_224941: PutFile process started
+26012022_224941: Archiving Process started
+26012022_224941: closestockprice.csv file moved to C:\Git\Data_Engineering\Files\DEV\Archive as closestockprice_29012022.csv, proceed to deletion
+26012022_224941: PutFile process started
+26012022_224941: closestockprice.csv file already exist at C:\Git\Data_Engineering\Files\DEV\Files, archiving the file
+26012022_224941: C:\Git\Data_Engineering\Files\DEV\Landing\closestockprice.csv moved from landing area
+26012022_225129: PutFile process started
+26012022_225129: Archiving Process started
+26012022_225129: closestockprice.csv file moved to C:\Git\Data_Engineering\Files\DEV\Archive as closestockprice_30012022.csv, proceed to deletion
+26012022_225129: PutFile process started
+26012022_225129: closestockprice.csv file already exist at C:\Git\Data_Engineering\Files\DEV\Files, archiving the file
+26012022_225139: PutFile process started
+26012022_225139: Archiving Process started
+26012022_225139: closestockprice.csv file moved to C:\Git\Data_Engineering\Files\DEV\Archive as closestockprice_31012022.csv, proceed to deletion
+26012022_225139: PutFile process started
+26012022_225139: closestockprice.csv file already exist at C:\Git\Data_Engineering\Files\DEV\Files, archiving the file
+26012022_225139: C:\Git\Data_Engineering\Files\DEV\Landing\closestockprice.csv moved from landing area
+26012022_225543: PutFile process started
+26012022_225543: Archiving Process started
+26012022_225543: closestockprice.csv file moved to C:\Git\Data_Engineering\Files\DEV\Archive as closestockprice_30012022.csv, proceed to deletion
+26012022_225543: PutFile process started
+26012022_225543: closestockprice.csv file already exist at C:\Git\Data_Engineering\Files\DEV\Files, archiving the file
+26012022_225543: C:\Git\Data_Engineering\Files\DEV\Landing\closestockprice.csv moved from landing area
