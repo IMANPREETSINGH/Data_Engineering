@@ -203,13 +203,13 @@ dftarget = pd.merge(dfopenprice,dfcloseprice, how = 'left', on = ['isin','date']
 dftarget['day'] = dftarget['date'].apply(lambda x: datetime.strftime(x, '%d'))
 dftarget['month'] = dftarget['date'].apply(lambda x: datetime.strftime(x, '%m'))
 dftarget['year'] = dftarget['date'].apply(lambda x: datetime.strftime(x, '%Y'))
-#print (dftarget)
+print (dftarget)
 
 #ordering column based on target table column list
 listtargetcolumn =  list(col for col in targetcolumnlist.split(','))
 dftarget = dftarget[listtargetcolumn]
 dftarget['date'] = dftarget['date'].apply(lambda x: datetime.strftime(x, '%d-%m-%Y'))
-#print(dftarget) 
+print(dftarget) 
 
 
 #-----------------------------------------------------------

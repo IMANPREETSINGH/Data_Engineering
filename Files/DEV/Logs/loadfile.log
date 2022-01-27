@@ -131,3 +131,6 @@
 27012022_112057: C:\Git\Data_Engineering\Files\DEV\Files doesn't exist
 27012022_112111: PutFileS3 process started
 27012022_112111: C:\Git\Data_Engineering\Files\DEV\Files\closestockprice.csv doesn't exist
+27012022_134935: PutFile process started
+27012022_134935: copying Process started
+27012022_134935: closestockprice.csv file not exist at C:\Git\Data_Engineering\Files\DEV\Files, copying the file
