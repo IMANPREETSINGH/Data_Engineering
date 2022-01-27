@@ -76,6 +76,7 @@ def PutData (query, dataframe, logfile, **dbparams):
 
         cur.close()
         conn.commit()
+        conn.close()
 
     except:
         msg = "error in writing data"

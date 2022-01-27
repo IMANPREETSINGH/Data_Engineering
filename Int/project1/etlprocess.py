@@ -96,14 +96,27 @@ if dfdbmaxdate.empty:
     currenttime  = datetime.now().strftime('%d%m%Y_%H%M%S')
     logfileobj.write("\n{}: {}".format(currenttime,msg))
     #print (msg)
-    maxdate = datetime.now()  #+ timedelta(days=1)
+    maxdate = datetime.now() 
+    #Monday is 0 and Sunday is 6.
+    dayofweek= maxdate.weekday()
+    if dayofweek == 5:
+        maxdate = maxdate + timedelta(days=2)
+    if dayofweek == 6:
+        maxdate = maxdate + timedelta(days=1)
     maxdate = maxdate.strftime('%Y-%m-%d') 
 else:   
     maxdate = pd.to_datetime(dfdbmaxdate['maxdate'], format='%d-%m-%Y')
     maxdate = maxdate + timedelta(days=1)
-    maxdate = maxdate.apply(lambda x: datetime.strftime(x, '%Y-%m-%d'))[0]
 
-#print(maxdate)
+    #Monday is 0 and Sunday is 6.
+    dayofweek= maxdate[0].weekday()
+	
+    if dayofweek == 5:
+        maxdate = maxdate + timedelta(days=2)
+    if dayofweek == 6:
+        maxdate = maxdate + timedelta(days=1)
+    
+    maxdate = maxdate.apply(lambda x: datetime.strftime(x, '%Y-%m-%d'))[0]
 
 sourcewherecondition = "where date = '{}'".format(maxdate)
     

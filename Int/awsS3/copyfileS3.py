@@ -126,7 +126,7 @@ def CopyFileS3(sourcebucket, targetbucket, sourcefilename, targetfilename, logfi
         return(0)
 
     except:
-        msg = "{} file doesn't exist in bucket {}, copying file".format(targetbucket, targetfilename)
+        msg = "{} file doesn't exist in bucket {}, copying file".format(targetfilename,targetbucket)
         currenttime  = datetime.now().strftime('%d%m%Y_%H%M%S')
         logfileobj.write("\n{}: {}".format(currenttime,msg))
         print (msg)

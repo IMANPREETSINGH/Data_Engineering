@@ -136,3 +136,4 @@ def PutFileS3(bucketname, filepath, filename, logfile, **s3params):
             print (msg)
             sys.exit(1)
     
+    os.remove(fullfilename)

@@ -48,7 +48,7 @@ projectparams = ConfigParams(projectconfigfile,project)
 
 bucketname = projectparams['bucket_name'] + env.lower()
 filename = projectparams['file_name']
-filepath = envparams['file_path']
+filepath = envparams['file_source_path']
 
 logfilepath = envparams['log_file_path']
 logfilename = 'loadfile.log'

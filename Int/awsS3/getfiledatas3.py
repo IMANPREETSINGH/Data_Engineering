@@ -19,8 +19,6 @@ import os
 import sys
 import time
 
-from pathy import set_client_params
-
 from awsS3.createbucketS3 import CreateBucketS3
 
 def GetFileDatas3(bucketname, key, logfile, **s3params):
