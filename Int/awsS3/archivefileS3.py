@@ -15,6 +15,7 @@ from fileinput import filename
 import boto3 
 import os 
 import sys
+import time
 from logging import exception
 from datetime import datetime
 
@@ -78,13 +79,13 @@ def ArchiveFileS3(bucketname, filename, logfile, **s3params):
     #-----------------------------------------------------------
 
     CreateBucketS3(archivebucket,logfile,**s3params)
-
+    time.sleep(3)
     #-----------------------------------------------------------
     #file copy
     #-----------------------------------------------------------
 
     tobedeleted = CopyFileS3(bucketname, archivebucket, filename, archivefile, logfile, **s3params)
-
+    
     #-----------------------------------------------------------
     #delete file
     #-----------------------------------------------------------

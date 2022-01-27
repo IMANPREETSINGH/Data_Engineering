@@ -13,6 +13,7 @@ import os
 import sys
 from logging import exception
 from datetime import datetime
+import time
 
 def DeleteFileS3(bucketname, filename, logfile, **s3params):
 
@@ -49,12 +50,18 @@ def DeleteFileS3(bucketname, filename, logfile, **s3params):
         print (msg)
         sys.exit(1)
 
-
     #-----------------------------------------------------------
     #S3 Client
     #-----------------------------------------------------------
-
-    s3client = boto3.client('s3',**s3params)
+    s3client = boto3.client('s3',**s3params) 
+    try:
+        s3client = boto3.client('s3',**s3params) 
+    except:
+        msg = "Issue in creating S3 client"
+        currenttime  = datetime.now().strftime('%d%m%Y_%H%M%S')
+        logfileobj.write("\n{}: {}".format(currenttime,msg))
+        print (msg)
+        sys.exit(1)
 
     #-----------------------------------------------------------
     #check bucket existence
@@ -85,6 +92,7 @@ def DeleteFileS3(bucketname, filename, logfile, **s3params):
 
         try:
             s3client.delete_object(Bucket= bucketname, Key = filename)
+            time.sleep(3)
             msg = "{} file delete from bucket {}".format(bucketname, filename)
             currenttime  = datetime.now().strftime('%d%m%Y_%H%M%S')
             logfileobj.write("\n{}: {}".format(currenttime,msg))

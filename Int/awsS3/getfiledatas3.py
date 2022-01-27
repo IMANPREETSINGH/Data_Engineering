@@ -17,6 +17,7 @@ import pandas as pd
 import boto3 
 import os 
 import sys
+import time
 
 from pathy import set_client_params
 
@@ -60,8 +61,16 @@ def GetFileDatas3(bucketname, key, logfile, **s3params):
     #-----------------------------------------------------------
     #S3 Client
     #-----------------------------------------------------------
-
     s3client = boto3.client('s3',**s3params) 
+    try:
+        s3client = boto3.client('s3',**s3params) 
+    except:
+        msg = "Issue in creating S3 client"
+        currenttime  = datetime.now().strftime('%d%m%Y_%H%M%S')
+        logfileobj.write("\n{}: {}".format(currenttime,msg))
+        print (msg)
+        sys.exit(1)
+
 
     #-----------------------------------------------------------
     #S3 Bucket check
@@ -96,6 +105,7 @@ def GetFileDatas3(bucketname, key, logfile, **s3params):
         sys.exit(1)
 
     s3file = s3client.get_object(Bucket =bucketname, Key = key)
-
+    time.sleep(3)
+    
     dfdata = pd.read_csv(s3file['Body'])
     return (dfdata)

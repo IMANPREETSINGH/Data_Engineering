@@ -15,7 +15,7 @@ from datetime import datetime
 
 import sys
 import boto3
-from datetime import datetime
+import time
 
 def CreateBucketS3(bucketname,logfile, **s3params):
     
@@ -58,8 +58,15 @@ def CreateBucketS3(bucketname,logfile, **s3params):
     #-----------------------------------------------------------
     #S3 Client
     #-----------------------------------------------------------
-
     s3client = boto3.client('s3',**s3params) 
+    try:
+        s3client = boto3.client('s3',**s3params) 
+    except:
+        msg = "Issue in creating S3 client"
+        currenttime  = datetime.now().strftime('%d%m%Y_%H%M%S')
+        logfileobj.write("\n{}: {}".format(currenttime,msg))
+        print (msg)
+        sys.exit(1)
 
     #-----------------------------------------------------------
     #check bucket existence
@@ -77,6 +84,7 @@ def CreateBucketS3(bucketname,logfile, **s3params):
         logfileobj.write("\n{}: {}".format(currenttime,msg))
         #print (msg)
         s3client.create_bucket(Bucket =bucketname, CreateBucketConfiguration ={'LocationConstraint': s3bucketregion} )
+        time.sleep(3)
         try:
             s3client.head_bucket(Bucket =bucketname)
             msg = "{} bucket created, loading file".format(bucketname)

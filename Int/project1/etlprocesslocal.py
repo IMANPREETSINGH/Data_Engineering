@@ -1,11 +1,31 @@
-import os
-import sys
+#-----------------------------------------------------------
+#common with all scripts
+#-----------------------------------------------------------
+import os,sys
+projectroot = os.path.abspath(os.path.join(os.path.dirname(__file__),os.pardir))
+sys.path.append(projectroot)
+configpath = os.path.join(projectroot,'config')
+currpath = os.path.dirname(os.path.realpath(__file__))
 
-PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__),os.pardir))
-sys.path.append(PROJECT_ROOT)
+#-----------------------------------------------------------
+#-----------------------------------------------------------
+#-----------------------------------------------------------
+'''
+File        :   etlprocesslocal
+Description :   to load files from local folder to database
+Creator     :   Imanpreet Singh 
 
-import pandas as pd
+Version     Date        Author              Description
+1           27-01-2022  Imanpreet Singh
+
+'''
+#-----------------------------------------------------------
+#-----------------------------------------------------------
+#-----------------------------------------------------------
+
+
 from datetime import datetime, timedelta 
+import pandas as pd
 
 from config import ConfigParams
 from database import *
@@ -14,17 +34,17 @@ from database import *
 #-----------------------------------------------------------
 #input parameters check and variable declration
 #-----------------------------------------------------------
-envconfigfile = 'envconfig.ini'
-dbconfigfile = 'dbconfig.ini'
-projectconfigfile = 'projectconfig.ini'
+envconfigfile = os.path.join(configpath,'envconfig.ini')
+dbconfigfile = os.path.join(configpath,'dbconfig.ini')
+
+projectconfigfile = os.path.join(currpath,'projectconfig.ini')
 
 env = sys.argv[1]
 project = sys.argv[2]
 
 dbsourceenv = env + '_' + 'SOURCE'
 dbtargetenv = env + '_' + 'TARGET'
-#env = 'DEV'
-#project = 'cart'
+
 
 #-----------------------------------------------------------
 #get parameters
@@ -42,7 +62,7 @@ targettable = projectparams['target_table']
 targetcolumnlist = projectparams['target_column_list']
 
 filename = projectparams['file_name']
-filepath = envparams['file_path']
+filepath = envparams['file_source_path']
 
 
 logfilepath = envparams['log_file_path']
@@ -53,7 +73,6 @@ logfile = os.path.join(logfilepath,logfilename)
 #-----------------------------------------------------------
 #logging
 #-----------------------------------------------------------
-
 currenttime  = datetime.now().strftime('%d%m%Y_%H%M%S')
 logfileobj = open(logfile, "a")
 logfileobj.write("\n{}: ETL process started".format(currenttime))
@@ -62,7 +81,6 @@ logfileobj.write("\n{}: ETL process started".format(currenttime))
 #-----------------------------------------------------------
 #source where condition
 #-----------------------------------------------------------
-
 maxdatequery = 'select max(date) as maxdate from {}.{}'.format(targetschema,targettable)
 #print(maxdatequery)
 
@@ -112,14 +130,12 @@ dfsourcedb = GetData(query = sourcequery, logfile= logfile, **dbsourceparams)
 #-----------------------------------------------------------
 #get csv file data from s3 bucket
 #-----------------------------------------------------------
-
 dffiledata = pd.read_csv(os.path.join(filepath, filename))
 #print(dffiledata)
 
 #-----------------------------------------------------------
 #column validation
 #-----------------------------------------------------------
-
 filecolumnlist =  dffiledata.columns
 
 for sourcecolumn in sourcecolumnlist.split(','):

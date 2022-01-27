@@ -91,3 +91,43 @@
 26012022_233220: PutFile process started
 26012022_233220: copying Process started
 26012022_233220: closestockprice.csv file not exist at C:\Git\Data_Engineering\Files\DEV\Files, copying the file
+27012022_094817: PutFile process started
+27012022_094817: Archiving Process started
+27012022_094817: closestockprice.csv file moved to C:\Git\Data_Engineering\Files\DEV\Archive as closestockprice_31012022.csv, proceed to deletion
+27012022_094817: PutFile process started
+27012022_094817: copying Process started
+27012022_094817: closestockprice.csv file already exist at C:\Git\Data_Engineering\Files\DEV\Files, archiving the file
+27012022_094817: C:\Git\Data_Engineering\Files\DEV\Landing\closestockprice.csv moved from landing area
+27012022_103818: PutFile process started
+27012022_103818: copying Process started
+27012022_103818: closestockprice.csv file not exist at C:\Git\Data_Engineering\Files\DEV\Files, copying the file
+27012022_104227: PutFile process started
+27012022_104227: copying Process started
+27012022_104227: C:\Git\Data_Engineering\Files\DEV\Landing\closestockprice.csv doesn't exist in landing area
+27012022_105211: PutFile process started
+27012022_105211: copying Process started
+27012022_105211: C:\Git\Data_Engineering\Files\DEV\Landing\closestockprice.csv doesn't exist in landing area
+27012022_105219: CreateBucketS3 process started
+27012022_105221: stockpricedev bucket exist, loading file
+27012022_105219: PutFileS3 process started
+27012022_105223: closestockprice.csv file loaded in bucket stockpricedev
+27012022_105602: PutFile process started
+27012022_105602: copying Process started
+27012022_105602: closestockprice.csv file not exist at C:\Git\Data_Engineering\Files\DEV\Files, copying the file
+27012022_105812: CreateBucketS3 process started
+27012022_105813: stockpricedev bucket exist, loading file
+27012022_105812: PutFileS3 process started
+27012022_110803: CreateBucketS3 process started
+27012022_110805: stockpricedev bucket exist, loading file
+27012022_110803: PutFileS3 process started
+27012022_111650: CreateBucketS3 process started
+27012022_111652: stockpricedev bucket exist, loading file
+27012022_111650: PutFileS3 process started
+27012022_111908: CreateBucketS3 process started
+27012022_111910: stockpricedev bucket exist, loading file
+27012022_111908: PutFileS3 process started
+27012022_111911: closestockprice.csv file doesn't exists in bucket stockpricedev
+27012022_112057: PutFileS3 process started
+27012022_112057: C:\Git\Data_Engineering\Files\DEV\Files doesn't exist
+27012022_112111: PutFileS3 process started
+27012022_112111: C:\Git\Data_Engineering\Files\DEV\Files\closestockprice.csv doesn't exist

@@ -1,12 +1,32 @@
-import os
-import sys
+#-----------------------------------------------------------
+#common with all scripts
+#-----------------------------------------------------------
+import os,sys
+projectroot = os.path.abspath(os.path.join(os.path.dirname(__file__),os.pardir))
+sys.path.append(projectroot)
+configpath = os.path.join(projectroot,'config')
+currpath = os.path.dirname(os.path.realpath(__file__))
 
-PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__),os.pardir))
-sys.path.append(PROJECT_ROOT)
+#-----------------------------------------------------------
+#-----------------------------------------------------------
+#-----------------------------------------------------------
+'''
+File        :   etlprocesslocal
+Description :   to load files from local folder to database
+Creator     :   Imanpreet Singh 
 
+Version     Date        Author              Description
+1           27-01-2022  Imanpreet Singh
+
+'''
+#-----------------------------------------------------------
+#-----------------------------------------------------------
+#-----------------------------------------------------------
+
+
+from datetime import datetime, timedelta
 import pandas as pd
-from datetime import datetime, timedelta 
-
+ 
 from config import ConfigParams
 from awsS3 import *
 from database import *
@@ -15,18 +35,18 @@ from database import *
 #-----------------------------------------------------------
 #input parameters check and variable declration
 #-----------------------------------------------------------
-envconfigfile = 'envconfig.ini'
-s3configfile = 's3config.ini'
-dbconfigfile = 'dbconfig.ini'
-projectconfigfile = 'projectconfig.ini'
+envconfigfile = os.path.join(configpath,'envconfig.ini')
+dbconfigfile = os.path.join(configpath,'dbconfig.ini')
+s3configfile = os.path.join(configpath,'s3config.ini')
+
+projectconfigfile = os.path.join(currpath,'projectconfig.ini')
 
 env = sys.argv[1]
 project = sys.argv[2]
 
 dbsourceenv = env + '_' + 'SOURCE'
 dbtargetenv = env + '_' + 'TARGET'
-#env = 'DEV'
-#project = 'cart'
+
 
 #-----------------------------------------------------------
 #get parameters
@@ -46,10 +66,6 @@ targetcolumnlist = projectparams['target_column_list']
 
 bucketname = projectparams['bucket_name'] + env.lower() 
 filename = projectparams['file_name']
-
-#incase of local file
-filepath = envparams['file_path']
-
 
 logfilepath = envparams['log_file_path']
 logfilename = 'etlprocess.log'

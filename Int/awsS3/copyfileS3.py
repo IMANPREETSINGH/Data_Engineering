@@ -11,6 +11,7 @@ Version     Date        Author              Description
 import boto3 
 import os 
 import sys
+import time
 from logging import exception
 from datetime import datetime
 
@@ -54,11 +55,20 @@ def CopyFileS3(sourcebucket, targetbucket, sourcefilename, targetfilename, logfi
         print (msg)
         sys.exit(1)
 
+
     #-----------------------------------------------------------
     #S3 Client
     #-----------------------------------------------------------
+    s3client = boto3.client('s3',**s3params) 
+    try:
+        s3client = boto3.client('s3',**s3params) 
+    except:
+        msg = "Issue in creating S3 client"
+        currenttime  = datetime.now().strftime('%d%m%Y_%H%M%S')
+        logfileobj.write("\n{}: {}".format(currenttime,msg))
+        print (msg)
+        sys.exit(1)
 
-    s3client = boto3.client('s3',**s3params)
 
     #-----------------------------------------------------------
     #check bucket existence
@@ -137,6 +147,7 @@ def CopyFileS3(sourcebucket, targetbucket, sourcefilename, targetfilename, logfi
         try:
             copysource = {'Bucket': sourcebucket, 'Key': sourcefilename}
             bucket.copy(copysource,targetfilename)
+            time.sleep(3)
             msg = "File {} copied from bucket - {} to bucket - {} as {}".format(sourcefilename,sourcebucket,targetbucket, targetfilename)
             currenttime  = datetime.now().strftime('%d%m%Y_%H%M%S')
             logfileobj.write("\n{}: {}".format(currenttime,msg))

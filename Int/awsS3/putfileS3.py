@@ -11,6 +11,7 @@ Version     Date        Author              Description
 import boto3 
 import os 
 import sys
+import time
 from logging import exception
 from datetime import datetime
 
@@ -53,8 +54,17 @@ def PutFileS3(bucketname, filepath, filename, logfile, **s3params):
         currenttime  = datetime.now().strftime('%d%m%Y_%H%M%S')
         print (msg)
         sys.exit(1)
-    
+
     fullfilename = os.path.join(filepath,filename)
+
+    #check file existence on the path
+    if not os.path.isfile(fullfilename):
+        msg = "{} doesn't exist".format(fullfilename)
+        logfileobj.write("\n{}: {}".format(currenttime,msg))
+        currenttime  = datetime.now().strftime('%d%m%Y_%H%M%S')
+        print (msg)
+        sys.exit(1) 
+
 
     #-----------------------------------------------------------
     #Bucket creation
@@ -65,8 +75,16 @@ def PutFileS3(bucketname, filepath, filename, logfile, **s3params):
     #-----------------------------------------------------------
     #S3 Client
     #-----------------------------------------------------------
+    
+    try:
+        s3client = boto3.client('s3',**s3params) 
+    except:
+        msg = "Issue in creating S3 client"
+        currenttime  = datetime.now().strftime('%d%m%Y_%H%M%S')
+        logfileobj.write("\n{}: {}".format(currenttime,msg))
+        print (msg)
+        sys.exit(1)
 
-    s3client = boto3.client('s3',**s3params) 
 
     try:
         s3client.head_object(Bucket= bucketname, Key = filename)
@@ -76,9 +94,11 @@ def PutFileS3(bucketname, filepath, filename, logfile, **s3params):
         print (msg)
        
         ArchiveFileS3(bucketname, filename, logfile, **s3params)
+        time.sleep(3)
 
         s3client.upload_file(Bucket = bucketname, Key = filename, Filename = fullfilename)
-
+        time.sleep(3)
+        
         try:
             s3client.head_object(Bucket= bucketname, Key = filename) 
             msg = "{} file loaded in bucket {}".format(filename, bucketname)
@@ -94,7 +114,14 @@ def PutFileS3(bucketname, filepath, filename, logfile, **s3params):
             sys.exit(1)
 
     except:
+        msg = "{} file doesn't exists in bucket {}".format(filename, bucketname)
+        currenttime  = datetime.now().strftime('%d%m%Y_%H%M%S')
+        logfileobj.write("\n{}: {}".format(currenttime,msg))
+        print (msg)
+
         s3client.upload_file(Bucket = bucketname, Key = filename, Filename = fullfilename)
+        time.sleep(3)
+
         try:
             s3client.head_object(Bucket= bucketname, Key = filename) 
             msg = "{} file loaded in bucket {}".format(filename, bucketname)
