@@ -62,7 +62,7 @@ targettable = projectparams['target_table']
 targetcolumnlist = projectparams['target_column_list']
 
 filename = projectparams['file_name']
-filepath = envparams['file_source_path']
+filepath = envparams['file_path']
 
 
 logfilepath = envparams['log_file_path']
@@ -203,7 +203,7 @@ dftarget = pd.merge(dfopenprice,dfcloseprice, how = 'left', on = ['isin','date']
 dftarget['day'] = dftarget['date'].apply(lambda x: datetime.strftime(x, '%d'))
 dftarget['month'] = dftarget['date'].apply(lambda x: datetime.strftime(x, '%m'))
 dftarget['year'] = dftarget['date'].apply(lambda x: datetime.strftime(x, '%Y'))
-print (dftarget)
+#print (dftarget)
 
 #ordering column based on target table column list
 listtargetcolumn =  list(col for col in targetcolumnlist.split(','))
